@@ -12,11 +12,16 @@ public class Main {
             int velocity;
             while (true) {
                 System.out.println("Введите скорость машины №" + i + ":");
-                velocity = scanner.nextInt();
-                if (0 < velocity & velocity <= 250) {
-                    break;
+                if (scanner.hasNextInt()) {
+                    velocity = scanner.nextInt();
+                    if (0 < velocity & velocity <= 250) {
+                        break;
+                    } else {
+                        System.out.println("Неправильная скорость");
+                    }
                 } else {
                     System.out.println("Неправильная скорость");
+                    scanner.next();
                 }
             }
             Car car = new Car(name, velocity);
